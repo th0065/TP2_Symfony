@@ -1,0 +1,193 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Réservation</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Client Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+   <style>
+       
+   </style> 
+    
+    
+</head>
+<body  >
+
+<!-- header -->
+<header >
+    
+    <div class="container bg-danger " >
+        <!-- nav -->
+        <nav class="py-3 d-lg-flex">
+            <div id="logo">
+                <h1>  <h4> <a class="btn" href="#">
+                    <span class="input-group-addon"><i class="fa fa-text-width" style="font-size:28px;color:blue"></i>H Business</span>
+                  </a> </h4>
+            </h1>
+            </div>
+            <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+            <input type="checkbox" id="drop" />
+            <ul class="menu ml-auto mt-1">
+                <li class=""><a class="btn active" href="{{path('app_login')}}">Home</a></li>
+                <li class=""><a href="#about" >Réservation</a></li>
+                <li class=""><a href="#services">About Us</a></li>
+                
+                
+            </ul>
+            <ul >
+                <li class=""><a href="#stats"><span class="input-group-addon text-primary"><i class="fa fa-user" aria-hidden="true"></i></span></a></li>
+                <li class=""><a href="#testimonials"> <span class="input-group-addon text-primary"><i class="fa fa-bell" aria-hidden="true"></i></span></a></li>
+            </ul>
+        </nav>
+        <!-- //nav -->
+    </div>
+</header>
+<!-- //header -->
+
+<!-- banner -->
+<div class="banner " id="home" >
+    <div class="layer bg-light ">
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-6 banner-text-w3ls">
+                    <!-- banner slider-->
+                    <div class="csslider infinity " id="slider1">
+                        <input type="radio" name="slides" checked="checked" id="slides_1" />
+                        <input type="radio" name="slides" id="slides_2" />
+                        <input type="radio" name="slides" id="slides_3" />
+                        <ul class="banner_slide_bg">
+                            <li>
+                                <div class="container-fluid">
+                                    <div class="w3ls_banner_txt">
+                                        <h3 class="b-w3ltxt text-capitalize text-dark mt-md-4">Fiabilité</h3>
+                                        <h4> <a class="btn">
+                                            <span class="input-group-addon text-dark"><i class="fa fa-text-width" style="font-size:28px;color:blue"></i>H Business</span>
+                                          </a> </h4>
+                                    
+                                    
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-fluid">
+                                    <div class="w3ls_banner_txt">
+                                        <h3 class="b-w3ltxt text-capitalize text-dark mt-md-4">Sécurité</h3>
+                                        <h4> <a class="btn">
+                                            <span class="input-group-addon text-dark"><i class="fa fa-text-width" style="font-size:28px;color:blue"></i>H Business</span>
+                                          </a> </h4>
+                                    
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-fluid">
+                                    <div class="w3ls_banner_txt">
+                                        <h3 class="b-w3ltxt text-capitalize text-dark mt-md-4">Confort</h3>
+                                        <h4> <a class="btn">
+                                            <span class="input-group-addon text-dark"><i class="fa fa-text-width " style="font-size:28px;color:blue"></i>H Business</span>
+                                          </a> </h4>
+                                    
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                           
+                        </ul>
+                        <div class="navigation">
+                            <div>
+                                <label for="slides_1" class="bg-dark"></label>
+                                <label for="slides_2" class="bg-dark"></label>
+                                <label for="slides_3" class="bg-dark"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //banner slider-->
+                </div>
+                <div class="col-md-6 px-lg-3 px-0">
+                    <div class="banner-form-w3 ml-lg-5 ">
+                        <div class="padding bg-primary">
+                           <form method="post" >
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+        
+            {% if app.user %}
+                <div class="mb-3">
+                    Vous êtes connecté(e) comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+        
+            <h1 class="h3 mb-3 font-weight-normal">Connectez vous svp</h1>
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+        
+            {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+        
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+            #}
+        
+            <button class="btn btn-lg btn-primary" type="submit">
+                 Me connecter
+            </button>
+        </form>
+        <div class=" col-sm-5 p-10 m-3">
+            <a type="button" href="{{path('app_register')}}"  class="btn btn-secondary " >M'inscrire</a>
+        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        
+<div class="copy-right-top bg-dark">
+    <p class="copy-right text-center pt-2">  <a class="btn">
+        <span class="input-group-addon"><i class="fa fa-text-width" style="font-size:28px;color:blue"></i>H Business</span>
+      </a> 
+
+    </p>
+</div>
+
+
+    
+    
+<!-- move top -->
+<div class="move-top text-right">
+    <a href="#home" class="move-top"> 
+        <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+    </a>
+</div>
+<!-- move top -->
+
+
+
+</body>
+</html>
+    
+
+
+{% endblock %}
